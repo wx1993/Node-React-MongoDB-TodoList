@@ -6,22 +6,30 @@
 - 删除 ToDo
 
 ## 安装
-`npm install`
+```js
+npm install
+```
 
 ## 启动
-`webpack -w`
+```js
+webpack -w
+```
 
-`npm start`
+```js
+npm start
+```
 
-`mongod --dbpath D:/mongodb/data`
+```js
+mongod --dbpath D:/mongodb/data
+```
 
 > dbpath 是本地 MongoDB/data 的路径，关于 MongoDB 的安装和配置，参考博客
 
-Mac：[http://www.cnblogs.com/wx1993/p/5187530.html](http://www.cnblogs.com/wx1993/p/5187530.html)
+Mac：[http://www.cnblogs.com/wx1993/p/5187530.html](http://www.cnblogs.com/wx1993/p/5187530.html)(url?_blank)
 
-Windows：[http://www.cnblogs.com/wx1993/p/5206587.html]([http://www.cnblogs.com/wx1993/p/5206587.html)
+Windows：[http://www.cnblogs.com/wx1993/p/5206587.html]([http://www.cnblogs.com/wx1993/p/5206587.html)(url?_blank)
 
-[http://www.cnblogs.com/wx1993/p/6518248.html](http://www.cnblogs.com/wx1993/p/6518248.html)
+[http://www.cnblogs.com/wx1993/p/6518248.html](http://www.cnblogs.com/wx1993/p/6518248.html)(url?_blank)
 
 ## 效果
 ![](http://images2015.cnblogs.com/blog/781464/201703/781464-20170320132614096-1299063842.jpg)
