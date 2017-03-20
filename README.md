@@ -25,7 +25,7 @@ npm start
 mongod --dbpath D:/mongodb/data
 ```
 
-> dbpath 是本地 MongoDB/data 的路径，关于 MongoDB 的安装和配置，参考博客
+dbpath 是本地 MongoDB/data 的路径，关于 MongoDB 的安装和配置，参考博客
 
 Mac：[http://www.cnblogs.com/wx1993/p/5187530.html](http://www.cnblogs.com/wx1993/p/5187530.html?_blank)
 
