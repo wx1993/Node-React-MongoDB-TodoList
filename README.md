@@ -2,17 +2,17 @@
 
 项目和代码分析详见博客: [http://www.cnblogs.com/wx1993/p/6550111.html](http://www.cnblogs.com/wx1993/p/6550111.html?_blank)
 
-## 功能：
+### 功能：
 
 - 添加 ToDo
 - 删除 ToDo
 
-## 安装
+### 安装
 ```js
 npm install
 ```
 
-## 启动
+### 启动
 ```js
 webpack -w
 ```
@@ -33,5 +33,5 @@ Windows：[http://www.cnblogs.com/wx1993/p/5206587.html]([http://www.cnblogs.com
         
 [http://www.cnblogs.com/wx1993/p/6518248.html](http://www.cnblogs.com/wx1993/p/6518248.html?_blank)
 
-## 效果
+### 效果
 ![](http://images2015.cnblogs.com/blog/781464/201703/781464-20170320132614096-1299063842.jpg)
