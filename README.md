@@ -1,7 +1,6 @@
 ## 简介
-这是一个基于 `Node` + `React` + `Webpack` + `MongoDB` 实现的 ToDoList 应用。
+一个基于 `Node` + `React` + `Webpack` + `MongoDB` 实现的 ToDoList 应用。
 
-项目和代码分析详见博客: [http://www.cnblogs.com/wx1993/p/6550111.html](http://www.cnblogs.com/wx1993/p/6550111.html?_blank)
 
 ## 功能：
 
@@ -25,13 +24,18 @@ npm start
 ```js
 mongod --dbpath D:/mongodb/data
 ```
+## 相关
 
-dbpath 是本地 MongoDB/data 的路径，关于 MongoDB 的安装和配置，参考博客
+**项目和代码分析**
+
+[http://www.cnblogs.com/wx1993/p/6550111.html](http://www.cnblogs.com/wx1993/p/6550111.html?_blank)
+ 
+**MongoDB 的安装和配置**
 
 Mac：[http://www.cnblogs.com/wx1993/p/5187530.html](http://www.cnblogs.com/wx1993/p/5187530.html?_blank)
 
 Windows：[http://www.cnblogs.com/wx1993/p/5206587.html]([http://www.cnblogs.com/wx1993/p/5206587.html?_blank)
-        
+
 [http://www.cnblogs.com/wx1993/p/6518248.html](http://www.cnblogs.com/wx1993/p/6518248.html?_blank)
 
 ## 效果
