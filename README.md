@@ -14,6 +14,10 @@ npm install
 
 ## 启动
 ```js
+mongod --dbpath D:/mongodb/data
+```
+
+```js
 webpack -w
 ```
 
@@ -21,9 +25,6 @@ webpack -w
 npm start
 ```
 
-```js
-mongod --dbpath D:/mongodb/data
-```
 ## 相关
 
 **项目和代码分析**
