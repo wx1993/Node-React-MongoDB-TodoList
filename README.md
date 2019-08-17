@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/grr6525/Node-React-MongoDB-TodoList.svg?branch=master)](https://travis-ci.org/grr6525/Node-React-MongoDB-TodoList)
+
 ## DESCRIPTION
 一个基于 `Node` + `React` + `Webpack` + `MongoDB` 实现的 ToDoList 应用。
 
