@@ -1,18 +1,18 @@
-## 简介
+## DESCRIPTION
 一个基于 `Node` + `React` + `Webpack` + `MongoDB` 实现的 ToDoList 应用。
 
 
-## 功能：
+## FUNCTION
 
 - 添加 ToDo
 - 删除 ToDo
 
-## 安装
+## INSTALL
 ```js
 npm install
 ```
 
-## 启动
+## START
 ```js
 mongod --dbpath D:/mongodb/data
 ```
@@ -25,7 +25,7 @@ webpack -w
 npm start
 ```
 
-## 相关
+## ABOUT
 
 **项目和代码分析**
 
