@@ -4,8 +4,8 @@
 
 ## FUNCTION
 
-- 添加 ToDo
-- 删除 ToDo
+- Add ToDo
+- Delete ToDo
 
 ## INSTALL
 ```js
