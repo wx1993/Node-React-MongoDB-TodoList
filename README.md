@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/grr6525/Node-React-MongoDB-TodoList.svg?branch=master)](https://travis-ci.org/grr6525/Node-React-MongoDB-TodoList)
 
 ## DESCRIPTION
-一个基于 `Node` + `React` + `Webpack` + `MongoDB` 实现的 ToDoList 应用。
+A TODO LIST APPLICATION BASED ON Node-React-express-MongoDB
 
 
 ## FUNCTION
@@ -15,13 +15,6 @@ npm install
 ```
 
 ## START
-```js
-mongod --dbpath D:/mongodb/data
-```
-
-```js
-webpack -w
-```
 
 ```js
 npm start
@@ -29,11 +22,11 @@ npm start
 
 ## ABOUT
 
-**项目和代码分析**
+**HOW IT WORKS**
 
 [http://www.cnblogs.com/wx1993/p/6550111.html](http://www.cnblogs.com/wx1993/p/6550111.html?_blank)
  
-**MongoDB 的安装和配置**
+**HOW TO INSTALL MongoDB**
 
 Mac：[http://www.cnblogs.com/wx1993/p/5187530.html](http://www.cnblogs.com/wx1993/p/5187530.html?_blank)
 
