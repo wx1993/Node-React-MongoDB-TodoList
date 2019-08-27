@@ -1,0 +1,8 @@
+工作流程
+
+1.fork项目
+2.使用workflow工作模式
+3.增加travis-CI调用mocha测试
+4.设置heroku自动发布
+5.增加mlab应用并修改链接 重新提交github 自动发布 
+6.完成
