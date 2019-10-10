@@ -9658,15 +9658,61 @@ var Todo = function (_React$Component) {
 			});
 		}
 	}, {
-    key: '_addcondition',
-    value: function _addcondition(){
-      return _react2.default.createElement(
-        'h2',
-        { className: '123'},
-        '12321312'
-      )
+    key: 'searchData',
+    value: function _searchData(){
+
+      event.preventDefault();
+			// 表单输入为空验证
+			if (this.refs.contentFrom.value == "") {
+				this.refs.contentFrom.focus();
+				return;
+			}else if (this.refs.contentEnd.value == "") {
+				this.refs.contentEnd.focus();
+				return;
+      }
+
+      	// 生成参数
+			var newItem = {
+        beginYear: this.refs.contentFrom.value,
+				endYear:this.refs.contentEnd.value
+			};
+      
+      console.log(newItem);
+      //this._onSearchData(newItem);
+
+
+     
+    
     }
-  }, {
+  }, 
+
+  {
+		key: '_onSearchData',
+		value: function _onSearchData(newItem) {
+			var that = this;
+			_jquery2.default.ajax({
+				url: '/SearchData',
+				type: 'get',
+				dataType: 'json',
+				data: newItem,
+				success: function success(data) {
+					console.log(data);
+					var todoList = that.todoSort(data);
+					that.setState({
+						todoList: todoList
+					});
+				},
+				error: function error(err) {
+					console.log(err);
+				}
+			});
+		}
+
+		// 删除 todo
+
+  },
+  
+  {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
@@ -9681,7 +9727,7 @@ var Todo = function (_React$Component) {
             _react2.default.createElement(
               'h2',
               { className: 'header' },
-              'Discription'
+              'Description'
             ),
           ),
 
@@ -9698,7 +9744,7 @@ var Todo = function (_React$Component) {
               ),
               _react2.default.createElement(
               'input', 
-              { ref: 'content', type: 'text', placeholder: '2018', className: 'yeartext' }),
+              { ref: 'contentFrom', type: 'text', placeholder: '2018', className: 'yeartext' }),
 
               _react2.default.createElement(
                 'div', 
@@ -9707,7 +9753,7 @@ var Todo = function (_React$Component) {
                 ),
               _react2.default.createElement(
                 'input', 
-                { ref: 'content', type: 'text', placeholder: '2019', className: 'yeartext2' }
+                { ref: 'contentEnd', type: 'text', placeholder: '2019', className: 'yeartext2' }
               )
             ),
             
@@ -9795,7 +9841,7 @@ var Todo = function (_React$Component) {
               
               _react2.default.createElement(
                 'button', 
-                { type: 'button', className: 'searchbutton'},
+                { type: 'button', className: 'searchbutton',onClick: this.searchData.bind(this)},
                 'Search'
               ),
               _react2.default.createElement(
