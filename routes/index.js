@@ -19,6 +19,17 @@ router.get('/getAllItems', (req, res, next) => {
 	})
 });
 
+
+router.get('/getFakeData', (req, res, next) => {
+	Todo.find({}).sort({'date': -1}).exec((err, todoList) => {
+		if (err) {
+			console.log(err);
+		}else {
+			res.json(todoList);
+		}
+	})
+});
+
 // 添加todo
 router.post('/addItem', (req, res, next) => {
 	let newItem = req.body;

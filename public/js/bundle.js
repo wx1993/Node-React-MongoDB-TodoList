@@ -9720,20 +9720,20 @@ var Todo = function (_React$Component) {
                 
                 _react2.default.createElement(
                   'option',
-                  { value : 'Article title'},
-                  'Article title'
+                  { value : 'Method'},
+                  'Method'
                 ),
                 
                 _react2.default.createElement(
                   'option',
-                  { value : 'Article Source'},
-                  'Article Source'
+                  { value : 'Methodology'},
+                  'Methodology'
                 ),
                 
                 _react2.default.createElement(
                   'option',
-                  { value : 'Author'},
-                  'Author'
+                  { value : 'Benifit'},
+                  'Benifit'
                 ),
               ),
 
