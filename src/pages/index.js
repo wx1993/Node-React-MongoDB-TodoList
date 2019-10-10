@@ -130,7 +130,7 @@ class Todo extends React.Component {
   	render() {
 	  	return (
 	  		<div className="container">
-				<h2 className="header">TodoWoCAOList</h2>
+				<h2 className="header">Todo List</h2>
 				<form className="todoForm" ref="todoForm" onSubmit={ this.handleSubmit.bind(this) }>
 					<input ref="content" type="text" placeholder="Type content here..." className="todoContent" />
 					{ this.state.showTooltip &&

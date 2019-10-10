@@ -13,19 +13,33 @@ button {
 }
 
 .container {
-	position: absolute;
+	position:absolute;
 	top: 15%;
-	right: 15%;
+	left: 1%;
 	width: 400px;
 	height: 475px;
-	overflow-x: hidden;
-	overflow-y: auto;
-	padding: 20px;
+	
 	border: 1px solid #666;
 	border-radius: 5px;
 	box-shadow: 5px 5px 20px #000;
 	background: rgba(60,60,60,0.3);
 }
+
+.container2 {
+
+	position:absolute;
+	top: 15%;
+	left: 450px;
+	width: 800px;
+	height: 475px;
+
+	border: 1px solid #666;
+	border-radius: 5px;
+	box-shadow: 5px 5px 20px #000;
+	background: rgba(60,60,60,0.3);
+}
+
+
 
 .header h2 {
 	padding: 0;
@@ -34,7 +48,13 @@ button {
 	text-align: center;
 	letter-spacing: 1px;
 }
-
+.header2 h2 {
+	padding: 0;
+	margin: 0;
+	font-size: 25px;
+	text-align: center;
+	letter-spacing: 1px;
+}
 .todoForm {
 	margin: 20px 0 30px 0;
 }

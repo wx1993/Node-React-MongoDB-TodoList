@@ -9658,25 +9658,64 @@ var Todo = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'div',
-				{ className: 'container' },
-				_react2.default.createElement(
-					'h2',
-					{ className: 'header' },
-					'Todo List'
-				),
-				_react2.default.createElement(
-					'form',
-					{ className: 'todoForm', ref: 'todoForm', onSubmit: this.handleSubmit.bind(this) },
-					_react2.default.createElement('input', { ref: 'content', type: 'text', placeholder: 'Type content here...', className: 'todoContent' }),
-					this.state.showTooltip && _react2.default.createElement(
-						'span',
-						{ className: 'tooltip' },
-						'Content is required !'
-					)
-				),
-				_react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })
-			);
+        'div',
+        {classname:'bigcontainer'},
+        _react2.default.createElement(
+          'div',
+          { className: 'container' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'header' },
+            'Discription'
+          ),
+          _react2.default.createElement(
+            'input',
+            { ref: 'content', type:'text', className: 'DiscriptionIn' }
+          ),
+          _react2.default.createElement(
+            'input',
+            { ref: 'content', type:'text', className: 'Year1' }
+          ),
+          _react2.default.createElement(
+            'input',
+            { ref: 'content', type:'text', className: 'Year2' }
+          ),
+          _react2.default.createElement(
+            'form',
+            { className: 'todoForm', ref: 'todoForm', onSubmit: this.handleSubmit.bind(this) },
+            _react2.default.createElement('input', { ref: 'content', type: 'text', placeholder: 'Type content here...', className: 'todoContent' }),
+            this.state.showTooltip && _react2.default.createElement(
+              'span',
+              { className: 'tooltip' },
+              'Content is required !'
+            )
+          ),
+          _react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })
+        
+          ),
+        _react2.default.createElement(
+          'div',
+          { className: 'container2' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'header' },
+            'Result'
+          ),
+
+          _react2.default.createElement(
+            'form',
+            { className: 'todoForm', ref: 'todoForm', onSubmit: this.handleSubmit.bind(this) },
+            _react2.default.createElement('input', { ref: 'content', type: 'text', placeholder: 'Type content here...', className: 'todoContent' }),
+            this.state.showTooltip && _react2.default.createElement(
+              'span',
+              { className: 'tooltip' },
+              'Content is required !'
+            )
+          ),
+          _react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })
+        
+            )
+				);
 		}
 	}]);
 
