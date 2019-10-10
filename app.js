@@ -9,7 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/todo')
+mongoose.connect('mongodb://heroku_bqszzqcw:d1fcgvmgq3astipgea67pquhm3@ds263927.mlab.com:63927/heroku_bqszzqcw')
 
 var app = express();
 

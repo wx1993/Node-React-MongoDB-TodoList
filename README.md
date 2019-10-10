@@ -1,18 +1,20 @@
-## 简介
+[![Build Status](https://travis-ci.org/grr6525/Node-React-MongoDB-TodoList.svg?branch=master)](https://travis-ci.org/grr6525/Node-React-MongoDB-TodoList)
+
+## DESCRIPTION
 一个基于 `Node` + `React` + `Webpack` + `MongoDB` 实现的 ToDoList 应用。
 
 
-## 功能：
+## FUNCTION
 
-- 添加 ToDo
-- 删除 ToDo
+- Add ToDo
+- Delete ToDo
 
-## 安装
+## INSTALL
 ```js
 npm install
 ```
 
-## 启动
+## START
 ```js
 mongod --dbpath D:/mongodb/data
 ```
@@ -25,7 +27,7 @@ webpack -w
 npm start
 ```
 
-## 相关
+## ABOUT
 
 **项目和代码分析**
 
@@ -39,5 +41,5 @@ Windows：[http://www.cnblogs.com/wx1993/p/5206587.html]([http://www.cnblogs.com
 
 [http://www.cnblogs.com/wx1993/p/6518248.html](http://www.cnblogs.com/wx1993/p/6518248.html?_blank)
 
-## 效果
+## SCREENSHOT
 ![](https://camo.githubusercontent.com/3e21821d6a9aefbbdf9b0b3625ae5e6c4e0338d2/687474703a2f2f696d61676573323031352e636e626c6f67732e636f6d2f626c6f672f3738313436342f3230313730332f3738313436342d32303137303332303134323332393533332d313631373830363535362e706e67)
