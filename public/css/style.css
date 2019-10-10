@@ -42,7 +42,7 @@ button {
 .searchcondition {
 	position:absolute;
 	width: 36.2%;
-	height: 70%;
+	height: 75%;
 	left: 2%;
 	border: 1px solid #666;
 	border-radius: 5px;
@@ -53,7 +53,7 @@ button {
 .searchresult {
 	position:absolute;
 	width: 60.8%;
-	height: 70%;
+	height: 75%;
 	left: 38.4%;
 	border: 1px solid #666;
 	border-radius: 5px;
@@ -61,7 +61,7 @@ button {
 	background: rgba(60,60,60,0.3);
 }
 h1{	
-	font-size: 75px;
+	font-size: 55px;
 }
 .layer {
 	float: none;
@@ -73,6 +73,9 @@ h1{
 .maintitle{
 	float: right;
 }
+.logo{
+	margin-top: -40px;
+}
 
 .yeartext {
 	Float: left;
@@ -82,7 +85,7 @@ h1{
 }
 .yeartext2 {
 	Float: left;
-	margin-left:-50px;
+	margin-left:-56px;
 	width: 30%;
 	height: 35%;
 }
@@ -140,8 +143,8 @@ h1{
 
 .todoForm {
 	margin: 20px 0 30px 0;
-	width: 500px;
-	height: 268px;
+	width: 99%;
+	height: 40%;
 }
 
 .todoContent {
