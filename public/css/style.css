@@ -60,7 +60,9 @@ button {
 	box-shadow: 5px 5px 20px #000;
 	background: rgba(60,60,60,0.3);
 }
-
+h1{	
+	font-size: 75px;
+}
 .layer {
 	float: none;
 	align-items:center;
