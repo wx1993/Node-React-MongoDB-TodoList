@@ -12,7 +12,7 @@ button {
 	cursor: pointer;
 }
 
-.container {
+/* .container {
 	position:absolute;
 	top: 15%;
 	left: 1%;
@@ -23,7 +23,7 @@ button {
 	border-radius: 5px;
 	box-shadow: 5px 5px 20px #000;
 	background: rgba(60,60,60,0.3);
-}
+} */
 
 .container2 {
 
@@ -39,31 +39,87 @@ button {
 	background: rgba(60,60,60,0.3);
 }
 
+.searchcondition {
+	position:absolute;
+	width: 36.2%;
+	height: 80%;
+	left: 2%;
+	border: 1px solid #666;
+	border-radius: 5px;
+	box-shadow: 5px 5px 20px #000;
+	background: rgba(60,60,60,0.3);
+}
 
+.searchresult {
+	position:absolute;
+	width: 60.8%;
+	height: 80%;
+	left: 38.4%;
+	border: 1px solid #666;
+	border-radius: 5px;
+	box-shadow: 5px 5px 20px #000;
+	background: rgba(60,60,60,0.3);
+}
+
+.layer {
+	float: none;
+	align-items:center;
+	margin-top: 2px;
+	height: 15%;
+}
+
+.yeartext {
+	Float: left;
+	margin-left:-40px;
+	width: 30%;
+	height: 35%;
+}
+
+.divyear {
+	Float: left;
+	margin-Left: 5%;
+	width: 20%;
+}
+
+.ifsection {
+	margin-left: 5%;
+	height: 50%;
+	width: 20%;
+}
+
+.iftext {
+	margin-left: 5%;
+	height: 35%;
+	width: 30%;
+}
+
+.ifbutton {
+	margin-left: 2px;
+	height: 55%;
+	width: 5%;
+}
+
+.conditiontitle {
+	margin-left: 5%;
+}
 
 .header h2 {
-	padding: 0;
-	margin: 0;
+	margin-left: 5%;
 	font-size: 25px;
 	text-align: center;
 	letter-spacing: 1px;
 }
-.header2 h2 {
-	padding: 0;
-	margin: 0;
-	font-size: 25px;
-	text-align: center;
-	letter-spacing: 1px;
-}
+
 .todoForm {
 	margin: 20px 0 30px 0;
+	width: 500px;
+	height: 268px;
 }
 
 .todoContent {
-	display: block;
 	width: 380px;
 	padding: 10px;
-	margin-bottom: 20px;
+	margin-top: 20px;
 	border: none;
 	border-radius: 3px;
 }
