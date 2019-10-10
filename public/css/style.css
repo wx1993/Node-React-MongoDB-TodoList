@@ -42,7 +42,7 @@ button {
 .searchcondition {
 	position:absolute;
 	width: 36.2%;
-	height: 80%;
+	height: 70%;
 	left: 2%;
 	border: 1px solid #666;
 	border-radius: 5px;
@@ -53,7 +53,7 @@ button {
 .searchresult {
 	position:absolute;
 	width: 60.8%;
-	height: 80%;
+	height: 70%;
 	left: 38.4%;
 	border: 1px solid #666;
 	border-radius: 5px;
@@ -68,9 +68,19 @@ button {
 	height: 15%;
 }
 
+.maintitle{
+	float: right;
+}
+
 .yeartext {
 	Float: left;
 	margin-left:-40px;
+	width: 30%;
+	height: 35%;
+}
+.yeartext2 {
+	Float: left;
+	margin-left:-50px;
 	width: 30%;
 	height: 35%;
 }
@@ -78,6 +88,11 @@ button {
 .divyear {
 	Float: left;
 	margin-Left: 5%;
+	width: 20%;
+}
+.divyear2 {
+	Float: left;
+	margin-Left: 8%;
 	width: 20%;
 }
 
@@ -98,9 +113,20 @@ button {
 	height: 55%;
 	width: 5%;
 }
+.searchbutton {
+	margin-left: 45.5%;
+	height: 55%;
+	width: 25%;
+}
+.savebutton {
+	margin-left: 1%;
+	height: 55%;
+	width: 25%;
+}
 
 .conditiontitle {
 	margin-left: 5%;
+	margin-right: 10%;
 }
 
 .header h2 {
