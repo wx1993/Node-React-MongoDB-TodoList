@@ -4,23 +4,12 @@ var Todo = require('../src/models/todo')
 
 router.get('/', (req, res, next) => {
 	res.render('index', {
-		title: 'React TodoList'
+		title: 'SERLER'
 	});
 });
 
 // 获取全部的todo
 router.get('/getAllItems', (req, res, next) => {
-	Todo.find({}).sort({'date': -1}).exec((err, todoList) => {
-		if (err) {
-			console.log(err);
-		}else {
-			res.json(todoList);
-		}
-	})
-});
-
-
-router.get('/getFakeData', (req, res, next) => {
 	Todo.find({}).sort({'date': -1}).exec((err, todoList) => {
 		if (err) {
 			console.log(err);
@@ -47,6 +36,24 @@ router.post('/addItem', (req, res, next) => {
 		}
 	})
 })
+
+
+router.all('/SearchData', (req, res, next) => {
+
+	// let newItem = req.body;
+	// Todo.find({"context":newItem.beginYear }).sort({'date': -1}).exec((err, todoList) => {
+	// 	if (err) {
+	// 		console.log(err);
+	// 	}else {
+	// 		res.json(todoList);
+	// 	}
+	// })
+	  res.send('GET request to the homepage');
+
+	
+})
+
+
 
 // 删除todo
 router.post('/deleteItem', (req, res, next) => {
