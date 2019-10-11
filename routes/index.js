@@ -40,16 +40,16 @@ router.post('/addItem', (req, res, next) => {
 
 router.all('/SearchData', (req, res, next) => {
 
-	// let newItem = req.body;
-	// Todo.find({"context":newItem.beginYear }).sort({'date': -1}).exec((err, todoList) => {
-	// 	if (err) {
-	// 		console.log(err);
-	// 	}else {
-	// 		res.json(todoList);
-	// 	}
-	// })
-	  res.send('GET request to the homepage');
-
+	 let beginYear = req.query.beginYear;
+	 let endYear = req.query.endYear;
+	 Todo.find({content: beginYear}).sort({'date': -1}).exec((err, todoList) => {
+		if (err) {
+			console.log(err);
+		}else {
+			res.json(todoList);
+		}
+	})
+	// res.json(beginYear + endYear);
 	
 })
 
