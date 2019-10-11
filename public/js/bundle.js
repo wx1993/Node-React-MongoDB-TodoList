@@ -9661,24 +9661,24 @@ var Todo = function (_React$Component) {
     key: 'searchData',
     value: function _searchData(){
 
-      event.preventDefault();
-			// 表单输入为空验证
-			if (this.refs.contentFrom.value == "") {
-				this.refs.contentFrom.focus();
-				return;
-			}else if (this.refs.contentEnd.value == "") {
-				this.refs.contentEnd.focus();
-				return;
-      }
+   //    event.preventDefault();
+			// // 表单输入为空验证
+			// if (this.refs.contentFrom.value == "") {
+			// 	this.refs.contentFrom.focus();
+			// 	return;
+			// }else if (this.refs.contentEnd.value == "") {
+			// 	this.refs.contentEnd.focus();
+			// 	return;
+   //    }
 
       	// 生成参数
 			var newItem = {
         beginYear: this.refs.contentFrom.value,
 				endYear:this.refs.contentEnd.value
 			};
-      
+          
       console.log(newItem);
-      //this._onSearchData(newItem);
+      this._onSearchData(newItem);
 
 
      
