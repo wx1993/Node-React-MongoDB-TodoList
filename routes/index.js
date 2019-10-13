@@ -42,15 +42,13 @@ router.all('/SearchData', (req, res, next) => {
 
 	 let beginYear = req.query.beginYear;
 	 let endYear = req.query.endYear;
-	 Todo.find({content: beginYear}).sort({'date': -1}).exec((err, todoList) => {
+	 Todo.find({content:{$in:[beginYear,endYear]}}).sort({'date': -1}).exec((err, todoList) => {
 		if (err) {
 			console.log(err);
 		}else {
 			res.json(todoList);
 		}
-	})
-	// res.json(beginYear + endYear);
-	
+	})	
 })
 
 
