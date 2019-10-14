@@ -9538,7 +9538,7 @@ var Todo = function (_React$Component) {
 				success: function success(data) {
 
 					console.log(data);
-					// const todoList = that.todoSort(data)
+				 // const todoList = that.todoSort(data)
 					that.setState({
             todoList: data,
             todoListALL: data
@@ -9857,7 +9857,7 @@ var Todo = function (_React$Component) {
             _react2.default.createElement(
               'h2',
               { className: 'header' },
-              'History'
+              'Histories'
             ),
             
             _react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })  
@@ -32092,6 +32092,16 @@ var TodoItem = function (_React$Component) {
 						{ className: "itemCont" },
 						this.props.content
 					),
+          _react2.default.createElement(
+            "span",
+            { className: "itemMethods" },
+            this.props.methods
+          ),
+           _react2.default.createElement(
+            "span",
+            { className: "itemAuthor" },
+            this.props.author
+          ),
 					_react2.default.createElement(
 						"span",
 						{ className: "itemTime" },
@@ -32160,8 +32170,9 @@ var TodoList = function (_React$Component) {
                   // 循环生成每一条 todoItem，并将 delete 方法传递给子组件 
                   var todoItems = todoList.map(function (item, index) {
                         return _react2.default.createElement(_todoItem2.default, {
-                              key: index,
-                              content: item.content,
+                              content: item.publishTime,
+                              methods: item.methods,
+                              author: item.author,
                               date: item.date,
                               onDeleteItem: _this2.props.onDeleteItem
                         });
