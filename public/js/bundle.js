@@ -9860,7 +9860,7 @@ var Todo = function (_React$Component) {
               'Histories'
             ),
             
-            _react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })  
+            //_react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })  
           ),          
         ),
 
@@ -9926,6 +9926,8 @@ var Todo = function (_React$Component) {
               { className: 'header' },
               'Results'
             ),
+            _react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })  
+
           ),
 
           // _react2.default.createElement(_todoList2.default, { todoList: this.state.todoList})

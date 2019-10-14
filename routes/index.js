@@ -42,13 +42,44 @@ router.all('/SearchData', (req, res, next) => {
 
 	 let beginYear = req.query.beginYear;
 	 let endYear = req.query.endYear;
-	 Todo.find({content:{$in:[beginYear,endYear]}}).sort({'date': -1}).exec((err, todoList) => {
+	 Todo.find({title : {$regex : beginYear}}).sort({'date': -1}).exec((err, todoList) => {
 		if (err) {
 			console.log(err);
 		}else {
 			res.json(todoList);
 		}
 	})	
+})
+
+
+router.get('/addFakeData', (req, res, next) => {
+
+const newItem={
+
+		title : 'Pinning Down Variables, and Taking an Agile Approach.',
+		methods : 'ADD',
+		source : 'http://eds.b.ebscohost.com.ezproxy.aut.ac.nz/eds/pdfviewer/pdfviewer?vid=12&sid=9b5bb43f-5e08-4432-a1b6-a607f840d694%40sessionmgr103',
+		PublicationType : 'Academic Journals',
+	    author  : 'Torres, Edwin',
+	    addTime : '2019',
+	    publishTime : '2019'
+
+		};
+
+
+	Todo.create(newItem, (err) => {
+		if (err) {
+			console.log(err);
+		}else {
+			Todo.find({}, (err, todoList) => {
+				if (err) {
+					console.log(err);
+				}else {
+					res.json(todoList);
+				}
+			});
+		}
+	})
 })
 
 
