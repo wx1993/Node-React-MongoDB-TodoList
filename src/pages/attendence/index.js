@@ -5,7 +5,7 @@ import Layout from '../../components/layout.js'
 class Index extends Component {
     componentDidMount(){
         //this.props.history.push('/attendence/staff')
-        this.props.history.push('/member')
+        this.props.history.push('/search')
 
     }
     render(){
