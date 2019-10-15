@@ -11,9 +11,11 @@ export default class extends Component {
         this.state = {
             status:'list',
             tb_data:[],
-            delModel:false
+            delModel:false,
+            selectlist:[]
         };
         this.changeState= this.changeState.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.handle = this.handle.bind(this);
         this.del = this.del.bind(this);
         this.columns = [
@@ -68,8 +70,12 @@ export default class extends Component {
     searchresults(){
         var dataset = {
             from: this.refs.from.value,
-            to: this.refs.to.value
+            to: this.refs.to.value,
+            select1: this.refs.select1.value,
+            select2: this.refs.select2.value,
+            select3: this.refs.select3.value
         };
+        alert(dataset.select1);
         search.bind(this)(dataset);
     }
 
@@ -95,6 +101,16 @@ export default class extends Component {
         });
         update && this.updateList();
     }
+    handleClick(){
+        if(this.refs.select1.value * 1 === 0){
+            this.setState({selectlist:filterColumns1});
+            filterColumns = filterColumns1
+        }else{
+            this.setState({selectlist:filterColumns2});
+            filterColumns = filterColumns2
+        }
+    }
+    
     render(){
         return (
             <Layout type={1}>
@@ -108,21 +124,23 @@ export default class extends Component {
                             <Button type="primary" onClick={() => this.searchresults() } className ='searchButton' >Search</Button>
                         </div>
                         <div className='g-header'>
-                            <font size="3" color="blue" className ='dataInput'>IF</font>
-                            <select className ='dataInput'>
-                                <option value = "0">Article title</option>
-                                <option value = "1">Method</option>
-                                <option value = "2">Benefit</option>
-                                <option value = "3">Participarts</option>
-                                <option value = "4">Author</option>
+                            <font size="3" color="blue" className ='dataInput'>Field</font>
+                            <select className ='selectInput' ref = 'select1' onChange={this.handleClick}>
+                                <option value = "0">SE Method</option>
+                                <option value = "1">SE Methodology</option>
                             </select>
-                            <select className ='dataInput'>
+                            <font size="3" color="blue" className ='dataInput'>Operator</font>
+                            <select className ='selectInput'  ref = 'select2'>
                                 <option value = "0">Contains</option>
                                 <option value = "1">Not Contain</option>
                                 <option value = "2">begins with</option>
                                 <option value = "3">ends with</option>
                                 <option value = "4">is equal</option>
                             </select>
+                            <font size="3" color="blue" className ='dataInput' >Value</font>
+                                <select className={'selectInput'} ref = 'select3'>
+                                    {filterColumns.map(index => (<option value = {index.name} >{index.name}</option>))}
+                                </select>
                         </div>
                         <ListMember columns={this.columns}/>
                     </div>:null}
@@ -134,4 +152,32 @@ export default class extends Component {
             </Layout>
         )
     }
+
+
 }
+var filterColumns = [
+    { name: "TDD"},
+    { name: "BDD"},
+    { name: "Pair Programming"},
+    { name: "planning poker,"},
+    { name: "daily standup meetings"},
+    { name: "story boards"},
+];
+
+
+const filterColumns1 = [
+    { name: "TDD"},
+    { name: "BDD"},
+    { name: "Pair Programming"},
+    { name: "Planning poker,"},
+    { name: "Daily standup meetings"},
+    { name: "story boards"},
+];
+const filterColumns2 = [
+    { name: "Scrum"},
+    { name: "Agile"},
+    { name: "Waterfall"},
+    { name: "XP"},
+    { name: "Crystal"},
+    { name: "Product Driven Development"},
+];

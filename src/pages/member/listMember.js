@@ -11,7 +11,7 @@ class List extends Component{
 export default connect((state) => {
     return {
         tb_data:(function(staff){
-            return staff.map(data => (data.work_num * 1 > 0 ? {...data,key:data.member_id}:{}))
+            return staff.map(data => ({...data,key:data.member_id}))
         })(state.baseData.staff)
     }
 })(List);
