@@ -7,3 +7,12 @@
     font-size: 14px;
     color: #24c875;
 }
+.dataInput{
+    margin-left:2%;
+	width: 10%;
+	height: 45%;
+}
+
+.searchButton{
+    margin-left:2%;
+}

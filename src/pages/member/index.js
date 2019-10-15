@@ -66,12 +66,10 @@ export default class extends Component {
     }
 
     searchresults(){
-        alert('1');
-        const dataset = [
-            {
-                year: 2007,
-            }
-        ];
+        var dataset = {
+            from: this.refs.from.value,
+            to: this.refs.to.value
+        };
         search.bind(this)(dataset);
     }
 
@@ -103,8 +101,28 @@ export default class extends Component {
                 <div className='m-members' >
                     {this.state.status === 'list'?<div className='m-list'>
                         <div className='g-header'>
-                            <input type='text' placeholder='2018'></input>
-                            <Button type="primary" onClick={() => this.searchresults()}>Search</Button>
+                            <font size="3" color="green" className ='dataInput'>From</font>
+                            <input type='text' placeholder='2018 ' ref='from' className ='dataInput'></input>
+                            <font size="3" color="green" className ='dataInput'>To</font>
+                            <input type='text' placeholder='2019 ' ref='to' className ='dataInput'></input>
+                            <Button type="primary" onClick={() => this.searchresults() } className ='searchButton' >Search</Button>
+                        </div>
+                        <div className='g-header'>
+                            <font size="3" color="blue" className ='dataInput'>IF</font>
+                            <select className ='dataInput'>
+                                <option value = "0">Article title</option>
+                                <option value = "1">Method</option>
+                                <option value = "2">Benefit</option>
+                                <option value = "3">Participarts</option>
+                                <option value = "4">Author</option>
+                            </select>
+                            <select className ='dataInput'>
+                                <option value = "0">Contains</option>
+                                <option value = "1">Not Contain</option>
+                                <option value = "2">begins with</option>
+                                <option value = "3">ends with</option>
+                                <option value = "4">is equal</option>
+                            </select>
                         </div>
                         <ListMember columns={this.columns}/>
                     </div>:null}
