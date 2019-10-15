@@ -1,0 +1,66 @@
+.g-select-warp{
+    margin-top: 20px;
+
+}
+.g-select-warp .search-bar{
+    border: 1px solid #8899a9;
+    border-left: none;
+    border-right: none;
+    height: 30px;
+    margin:10px 0;
+}
+.g-select-warp .search-bar li{
+    width: 3.65%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #8899a9;
+    text-align: center;
+}
+.g-select-warp .search-bar li:first-child{
+    width: 5%;
+}
+.g-select-warp .search-bar li.active{
+    color: #24c875;
+}
+.g-select-warp .left-result ,.g-select-warp .right-result{
+    width: 50%;
+}
+.g-select-warp .left-result ul{
+    background: #ffffff;
+    min-height: 200px;
+    padding: 1px 0 10px 10px;
+}
+.right-result .result{
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #a6cccc;
+    margin: 5px;
+    cursor: pointer;
+}
+.right-result .result:hover{
+    background-color: #98d7c7;
+}
+.g-select-warp .m-baseTree li{
+    height: 30px;
+    line-height: 30px;
+}
+.g-select-warp .m-baseTree .m-headerImg {
+    margin: 0 10px;
+}
+.g-select-warp .m-baseTree li{
+    margin-top: 10px;
+}
+.g-select-warp .m-baseTree li *{
+    font-size: 14px;
+    vertical-align: middle;
+}
+.g-select-warp .data{
+    background-color: rgba(215, 235, 251, 0.72);
+    display: flex;
+    align-items:stretch;
+    max-height: 300px;
+    overflow-y: auto;
+}
