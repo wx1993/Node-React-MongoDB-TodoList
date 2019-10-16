@@ -8,7 +8,7 @@ class Menu extends Component {
             {/* <li className="nav"><Link to={`/holiday`} activeClassName='g-navActive' className='link'>UserSetting</Link></li> */}
             {/* <li className="nav"><Link to={`/att`} activeClassName='g-navActive' className='link'>考勤分组</Link></li> */}
             <li className="nav"><Link to={`/search`} activeClassName='g-navActive' className='link'>Search</Link></li>
-            <li className="nav"><Link to={`/department`} activeClassName='g-navActive' className='link'>ArticleSetting</Link></li>
+            <li className="nav"><Link to={`/articlereview`} activeClassName='g-navActive' className='link'>article review</Link></li>
         </ul>
     }
 }

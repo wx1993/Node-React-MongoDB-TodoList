@@ -19,6 +19,13 @@ export default class  extends Component{
         });
     }
     render(){
-        return <Layout left={<DeptTree selected_id={this.state.dept_id} selectDept={this.selectDept}/>} type='2' right={<RightList tb_data={this.state.staff} dept_id={this.state.dept_id}/>} />
+        //return <Layout left={<DeptTree selected_id={this.state.dept_id} selectDept={this.selectDept}/>} type='2' right={<RightList tb_data={this.state.staff} dept_id={this.state.dept_id}/>} />
+    return (<Layout type={1}>
+                <div className='m-members' >
+                        <RightList columns={this.columns}/>
+
+                </div>
+            </Layout>)
+
     }
 }
