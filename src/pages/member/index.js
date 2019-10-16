@@ -75,7 +75,7 @@ export default class extends Component {
             select2: this.refs.select2.value,
             select3: this.refs.select3.value
         };
-        alert(dataset.select1);
+        //alert(dataset.from);
         search.bind(this)(dataset);
     }
 

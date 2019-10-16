@@ -153,7 +153,7 @@ export default connect((state,props) => {
             const curDept = depts.find(dept => {
                 return dept.department_id * 1 === props.dept_id * 1;
             });
-            return (curDept || {}).department_name || '全公司';
+            return (curDept || {}).department_name || 'article review';
         })(state.baseData.dept),
         dept_leader:(depts => {
             const curDept = depts.find(dept => {
