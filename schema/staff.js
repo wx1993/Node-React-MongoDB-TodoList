@@ -1,20 +1,19 @@
 var mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// 公司职员Schema
 const articleSchema = new Schema({
-  member_name:String,
-  member_id:{
-    type:Number
-  },
-  department_id:Number,
-  work_num:[String,Number],
-  department_name:String
-  // article_name:String,
-  // article_year:{
+  // member_name:String,
+  // member_id:{
   //   type:Number
   // },
-  // field_id:Number,
+  // department_id:Number,
   // work_num:[String,Number],
-  // author_name:String
+  // department_name:String
+  article_name:String,
+  author_name:String,
+  year:[String,Number],
+  field_id:Number,
+  se_method:String,
+  research_question:String,
+  research_result:String
 });
 module.exports =  articleSchema;

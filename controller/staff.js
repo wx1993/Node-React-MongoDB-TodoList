@@ -1,16 +1,16 @@
-var StaffModel = require('./../model/staff.js');
+var articleModel = require('./../model/staff.js');
 // 获取职员列表
-exports.staffList = function (req, res) {
-    const dept_id = req.body.department_id;
-    let param = {};
-    if(dept_id){
-        param = {
-            department_id:dept_id
-        };
-    }
-  StaffModel
-    .find(param)
-    .populate('Department','department_name')
+exports.articleList = function (req, res) {
+    // const article_name = req.body.article_name;
+    // let param = {};
+    // if(article_name){
+    //     param = {
+    //         department_id:dept_id
+    //     };
+    // }
+    articleModel
+    .find()
+    // .populate('Department','department_name')
     .exec(function (err, staffs) {
       if(err){
         res.status(err.status).end();
@@ -20,22 +20,24 @@ exports.staffList = function (req, res) {
     });
 }
 // 添加职员
-exports.addStaff =  function (req, res) {
+exports.addArticle =  function (req, res) {
   const reqBody = req.body;
-  if(!reqBody.member_name){
-    res.status(200).send({code:124,msg:'缺少员工姓名'}).end();
+  if(!reqBody.article_name){
+    res.status(200).send({code:124,msg:'miss article_name'}).end();
   }
-  if(!reqBody.department_id){
-    res.status(200).send({code:125,msg:'缺少部门id'}).end();
+  if(!reqBody.author_name){
+    res.status(200).send({code:125,msg:'miss author_name'}).end();
   }
   const MS = new Date().getTime();
   const uid = (MS + '').slice(-3) * 1 + (Math.random() * (MS + '').slice(0,3) + '').replace('.','') * 1;
-      const staff = new StaffModel({
-          member_name:reqBody.member_name,
-          work_num:reqBody.work_num,
-          department_id:reqBody.department_id,
-          member_id:uid,
-          department_name:reqBody.department_name
+      const staff = new articleModel({
+          article_name:reqBody.article_name,
+          author_name:reqBody.author_name,
+          year:reqBody.year,
+          field_id:reqBody.field_id,
+          se_method:reqBody.se_method,
+          research_question:reqBody.research_question,
+          research_result:reqBody.research_result
       });
       staff.save(function (err) {
           if(!err){
@@ -53,7 +55,7 @@ exports.delStaff =  function (req, res) {
   if(!resBody.member_id){
     res.status(200).send({msg:'缺少员工id',code:134}).end();
   }
-  StaffModel.remove({
+  articleModel.remove({
     member_id:resBody.member_id
   },function (err) {
     if(err){
@@ -69,7 +71,7 @@ exports.editStaff = function (req, res) {
   if(!reqBody.member_id){
     res.status(200).send({code:123,msg:'缺少员工id'}).end();
   }
-  StaffModel.findOneAndUpdate({member_id:reqBody.member_id},{
+  articleModel.findOneAndUpdate({member_id:reqBody.member_id},{
     member_name:reqBody.member_name,
     department_id:reqBody.department_id,
     work_num:reqBody.work_num,

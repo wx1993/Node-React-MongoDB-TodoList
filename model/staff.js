@@ -1,4 +1,4 @@
 var mongoose = require('mongoose');
-var staffSchma = require('./../schema/staff.js');
-const staffModel = mongoose.model('Staff',staffSchma);
-module.exports =  staffModel;
+var articleSchema = require('./../schema/staff.js');
+const articleModel = mongoose.model('Article',articleSchema);
+module.exports =  articleModel;

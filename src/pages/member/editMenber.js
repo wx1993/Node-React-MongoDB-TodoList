@@ -7,10 +7,13 @@ export default class  extends Component {
         this.state={
             optDept:false,
             member_id:props.meberMsg.member_id || undefined,
-            member_name:props.meberMsg.member_name || '',
-            department_id:props.meberMsg.department_id || '',
-            department_name:props.meberMsg.department_name || '',
-            work_num:props.meberMsg.work_num || ''
+            article_name:props.meberMsg.article_name || '',
+            author_name:props.meberMsg.author_name || '',
+            year:props.meberMsg.year || '',
+            field_id:props.meberMsg.field_id || '',
+            se_method:props.meberMsg.se_method || '',
+            research_question:props.meberMsg.research_question || '',
+            research_result:props.meberMsg.research_result || ''
         };
         this.onChangeTree = this.onChangeTree.bind(this);
         this.getOptDept = this.getOptDept.bind(this);
@@ -41,22 +44,26 @@ export default class  extends Component {
         });
     }
     verifyFrom(param){
-        if(!param.member_name){
-            message.warning('请输入员工姓名');
+        if(!param.article_name){
+            message.warning('input article_name');
             return false;
-        } else if(!param.department_name || !param.department_id){
-            message.warning('请选择员工部门');
+        } else if(!param.author_name || !param.author_name){
+            message.warning('input author_name');
             return false;
         } else {
             return true;
         }
     }
     submit(){
+        alert(this.state.article_name)
         const param = {
-            member_name:this.state.member_name.replace(/^\s+|\s+$/g,''),
-            department_id:this.state.department_id,
-            work_num:this.state.work_num ,
-            department_name:this.state.department_name
+            article_name:this.state.article_name.replace(/^\s+|\s+$/g,''),
+            author_name:this.state.author_name,
+            year:this.state.year ,
+            field_id:this.state.field_id ,
+            se_method:this.state.se_method ,
+            research_question:this.state.research_question ,
+            research_result:this.state.research_result
         };
         if(!this.verifyFrom(param)) return false;
         const type = this.state.member_id?'edit':'add';
@@ -64,14 +71,14 @@ export default class  extends Component {
             add:{
                 url:'/staff/add',
                 param:param,
-                success:'新增员工成功',
-                error:',员工新增失败'
+                success:'add success',
+                error:',failed'
             },
             edit:{
                 url:'/staff/edit',
                 param:{...param,member_id:this.state.member_id},
-                success:'编辑员工成功',
-                error:',员工编辑失败'
+                success:'success',
+                error:',failed'
             }
         }[type];
         this.$http.post(data.url,data.param).then(res => {
@@ -90,23 +97,48 @@ export default class  extends Component {
                 <table className='g-from'>
                     <tbody>
                         <tr>
-                            <td className='in-h'>姓名<span className='in-star'>*</span></td>
+                            <td className='in-h'>article_name<span className='in-star'>*</span></td>
                             <td>
-                                <input className='input' value={this.state.member_name} onChange={(event) => this.changeVal('member_name',event.target.value)}/>
+                                <input className='input' value={this.state.article_name} onChange={(event) => this.changeVal('article_name',event.target.value)}/>
                             </td>
                         </tr>
                         <tr>
-                            <td className='in-h'>部门<span className='in-star'>*</span></td>
+                            <td className='in-h'>author_name<span className='in-star'>*</span></td>
                             <td>
-                                <Button onClick={() => this.onChangeTree(true)}>部门</Button>
+                            <input className='input' value={this.state.author_name} onChange={(event) => this.changeVal('author_name',event.target.value)}/>
+                                {/* <Button onClick={() => this.onChangeTree(true)}>部门</Button>
                                 {this.state.department_name?<span className='result-p'>{this.state.department_name}</span>:null}
-                                {this.state.optDept?<OptDept maxNum={1} type='dept' visible={this.state.optDept} onOk={this.getOptDept} onChangeTree={this.onChangeTree} selectedData={this.curDept}/>:null}
+                                {this.state.optDept?<OptDept maxNum={1} type='dept' visible={this.state.optDept} onOk={this.getOptDept} onChangeTree={this.onChangeTree} selectedData={this.curDept}/>:null} */}
                             </td>
                         </tr>
                         <tr>
-                            <td className='in-h'>工号</td>
+                            <td className='in-h'>year</td>
                             <td>
-                                <input className='input' value={this.state.work_num} onChange={(event) => this.changeVal('work_num',event.target.value,'num')}/>
+                                <input className='input' value={this.state.year} onChange={(event) => this.changeVal('year',event.target.value,'num')}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className='in-h'>field_id</td>
+                            <td>
+                                <input className='input' value={this.state.field_id} onChange={(event) => this.changeVal('field_id',event.target.value,'num')}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className='in-h'>se_method<span className='in-star'>*</span></td>
+                            <td>
+                                <input className='input' value={this.state.se_method} onChange={(event) => this.changeVal('se_method',event.target.value)}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className='in-h'>research_question<span className='in-star'>*</span></td>
+                            <td>
+                                <input className='input' value={this.state.research_question} onChange={(event) => this.changeVal('research_question',event.target.value)}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className='in-h'>research_result<span className='in-star'>*</span></td>
+                            <td>
+                                <input className='input' value={this.state.research_result} onChange={(event) => this.changeVal('research_result',event.target.value)}/>
                             </td>
                         </tr>
                         <tr>

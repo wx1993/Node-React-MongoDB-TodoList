@@ -20,36 +20,40 @@ export default class extends Component {
         this.del = this.del.bind(this);
         this.columns = [
             {
-                title:'Article',
-                key:'member_name',
-                dataIndex:'member_name',
-                width:200
+                title:'Title',
+                key:'article_name',
+                dataIndex:'article_name',
+                width:100
             },
             {
                 title:'Author',
-                key:'department_name',
-                dataIndex:'department_name',
-                width:400
+                key:'author_name',
+                dataIndex:'author_name',
+                width:100
             },
             {
                 title:'Year',
-                key:'work_num',
-                dataIndex:'work_num',
+                key:'year',
+                dataIndex:'year',
                 width:200
             },
             {
-                title:'Field',                
-                key:'department_name',
-                dataIndex:'department_name',
-                width:500
-                // render:(record) => {
-                //     return (
-                //         <div>
-                //             <span className="action" onClick={() => this.handle('edit',record)}>编辑</span>
-                //             <span className="action" style={{marginLeft:'10px'}} onClick={() => this.handle('del',record)}>删除</span>
-                //         </div>
-                //     )
-                // }
+                title:'Se method',
+                key:'se_method',
+                dataIndex:'se_method',
+                width:200
+            },
+            {
+                title:'research question',
+                key:'research_question',
+                dataIndex:'research_question',
+                width:200
+            },
+            {
+                title:'research result',
+                key:'research_result',
+                dataIndex:'research_result',
+                width:200
             }
         ]
     }
@@ -75,7 +79,7 @@ export default class extends Component {
             select2: this.refs.select2.value,
             select3: this.refs.select3.value
         };
-        //alert(dataset.from);
+        // alert(dataset.select1);
         search.bind(this)(dataset);
     }
 
@@ -122,6 +126,7 @@ export default class extends Component {
                             <font size="3" color="green" className ='dataInput'>To</font>
                             <input type='text' placeholder='2019 ' ref='to' className ='dataInput'></input>
                             <Button type="primary" onClick={() => this.searchresults() } className ='searchButton' >Search</Button>
+                            <Button type="primary" onClick={() => this.handle('add') } className ='searchButton' >ADD</Button>
                         </div>
                         <div className='g-header'>
                             <font size="3" color="blue" className ='dataInput'>Field</font>
