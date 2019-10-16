@@ -55,7 +55,6 @@ export default class  extends Component {
         }
     }
     submit(){
-        alert(this.state.article_name)
         const param = {
             article_name:this.state.article_name.replace(/^\s+|\s+$/g,''),
             author_name:this.state.author_name,
