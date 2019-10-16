@@ -18,21 +18,40 @@ import {connect} from 'react-redux';
         this.onChange = this.onChange.bind(this);
         this.columns = [
             {
-                title:'姓名',
-                key:'member_name',
-                dataIndex:'member_name'
+                title:'Title',
+                key:'article_name',
+                dataIndex:'article_name',
+                width:100
             },
             {
-                title:'部门',
-                key:'department_name',
-                dataIndex:'department_name',
-                width:300
+                title:'Author',
+                key:'author_name',
+                dataIndex:'author_name',
+                width:100
             },
             {
-                title:'工号',
-                key:'work_num',
-                dataIndex:'work_num',
-                width:300
+                title:'Year',
+                key:'year',
+                dataIndex:'year',
+                width:200
+            },
+            {
+                title:'Se method',
+                key:'se_method',
+                dataIndex:'se_method',
+                width:200
+            },
+            {
+                title:'research question',
+                key:'research_question',
+                dataIndex:'research_question',
+                width:200
+            },
+            {
+                title:'research result',
+                key:'research_result',
+                dataIndex:'research_result',
+                width:200
             },
             {
                 title:'操作',

@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import Layout from './../../components/layout.js';
 import DeptTree from './deptTree.js'
 import RightList from './list.js';
+
+
 import './index.css'
 export default class  extends Component{
     constructor(props){
@@ -12,7 +14,11 @@ export default class  extends Component{
             leader_member_name:''
         };
         this.selectDept = this.selectDept.bind(this);
+
     }
+
+
+     
     selectDept(dept_id){
         this.setState({
             dept_id:dept_id * 1
