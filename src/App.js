@@ -14,6 +14,9 @@ export default class  extends Component {
                 if(!(resData.data.connect_database * 1)){
                     this.props.history.push('/warn')
                 }
+                else{
+                    this.props.history.push('/search')
+                }
             }
         });
     }

@@ -1,6 +1,5 @@
 ﻿import React ,{Component} from 'react';
 import {Button,message} from 'antd';
-import OptDept from './../../components/g-selectData.js';
 export default class  extends Component {
     constructor(props){
         super(props);
@@ -18,10 +17,6 @@ export default class  extends Component {
         this.onChangeTree = this.onChangeTree.bind(this);
         // this.getOptDept = this.getOptDept.bind(this);
         this.submit = this.submit.bind(this);
-	    this.curDept = [];
-        if(props.meberMsg.department_id && props.meberMsg.department_name){
-           this.curDept = [{department_id:props.meberMsg.department_id,department_name:props.meberMsg.department_name}];
-        }
     }
     changeVal(filed,val,type='text'){
         if(type === 'num'){
@@ -113,7 +108,7 @@ export default class  extends Component {
                             <td className='in-h'>author_name<span className='in-star'>*</span></td>
                             <td>
                             <input className='input' value={this.state.author_name} onChange={(event) => this.changeVal('author_name',event.target.value)}/>
-                                {/* <Button onClick={() => this.onChangeTree(true)}>部门</Button>
+                                {/* <Button onClick={() => this.onChangeTree(true)}>dpt</Button>
                                 {this.state.department_name?<span className='result-p'>{this.state.department_name}</span>:null}
                                 {this.state.optDept?<OptDept maxNum={1} type='dept' visible={this.state.optDept} onOk={this.getOptDept} onChangeTree={this.onChangeTree} selectedData={this.curDept}/>:null} */}
                             </td>
@@ -163,8 +158,8 @@ export default class  extends Component {
                         <tr>
                             <td className='in-h'></td>
                             <td>
-                                <button type='button' className='submit' style={{marginRight:'10px'}} onClick={this.submit}>确定</button>
-                                <button type='button' className='cancel' onClick={() => this.props.changeState('list')}>取消</button>
+                                <button type='button' className='submit' style={{marginRight:'10px'}} onClick={this.submit}>Confirm</button>
+                                <button type='button' className='cancel' onClick={() => this.props.changeState('list')}>Cancel</button>
                             </td>
                         </tr>
                     </tbody>

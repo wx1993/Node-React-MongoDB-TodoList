@@ -54,13 +54,13 @@ import {connect} from 'react-redux';
                 width:200
             },
             {
-                title:'操作',
+                title:'Operation',
                 key:'action',
                 width:150,
                 render:(record) => {
                     return (
                         <div>
-                            <span className='action' onClick={() => this.handle(record)}>修改部门</span>
+                            <span className='action' onClick={() => this.handle(record)}>Update</span>
                         </div>
                     )
                 }
