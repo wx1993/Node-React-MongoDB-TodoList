@@ -1,32 +1,42 @@
-var articleModel = require('./../model/staff.js');
+var articleModel = require('./../model/article.js');
 // 获取职员列表
 exports.articleList = function (req, res) {
-    // const article_name = req.body.article_name;
-    // let param = {};
-    // if(article_name){
-    //     param = {
-    //         department_id:dept_id
-    //     };
-    // }
-    articleModel
-    .find()
-    // .populate('Department','department_name')
-    .exec(function (err, staffs) {
-      if(err){
-        res.status(err.status).end();
-      } else {
-        res.json({code :0,data:staffs});
-      }
-    });
+  const yearto = req.body.yearto;
+  const yearfrom = req.body.yearfrom;
+    // var query = articleModel.find({});
+    if(yearto *1 === 0 && yearfrom* 1 === 0){
+      articleModel
+      .find({})
+      // .populate('Department','department_name')
+      .exec(function (err, staffs) {
+        if(err){
+          res.status(err.status).end();
+        } else {
+          res.json({code :0,data:staffs});
+        }
+      });
+    }else{
+      articleModel
+      .find({})
+      .where('year').gte(yearfrom).lte(yearto)
+      // .populate('Department','department_name')
+      .exec(function (err, staffs) {
+        if(err){
+          res.status(err.status).end();
+        } else {
+          res.json({code :0,data:staffs});
+        }
+      });
+    }
 }
-// 添加职员
+// add article
 exports.addArticle =  function (req, res) {
   const reqBody = req.body;
   if(!reqBody.article_name){
     res.status(200).send({code:124,msg:'miss article_name'}).end();
   }
-  if(!reqBody.author_name){
-    res.status(200).send({code:125,msg:'miss author_name'}).end();
+  if(!reqBody.se_methodology){
+    res.status(200).send({code:125,msg:'miss se_methodology'}).end();
   }
   const MS = new Date().getTime();
   const uid = (MS + '').slice(-3) * 1 + (Math.random() * (MS + '').slice(0,3) + '').replace('.','') * 1;
@@ -36,6 +46,8 @@ exports.addArticle =  function (req, res) {
           year:reqBody.year,
           field_id:reqBody.field_id,
           se_method:reqBody.se_method,
+          review:reqBody.review,
+          se_methodology:reqBody.se_methodology,
           research_question:reqBody.research_question,
           research_result:reqBody.research_result
       });

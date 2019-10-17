@@ -79,7 +79,7 @@ export default class extends Component {
             select2: this.refs.select2.value,
             select3: this.refs.select3.value
         };
-        // alert(dataset.select1);
+        // alert(dataset.select3);
         search.bind(this)(dataset);
     }
 
@@ -106,10 +106,10 @@ export default class extends Component {
         update && this.updateList();
     }
     handleClick(){
-        if(this.refs.select1.value * 1 === 0){
+        if(this.refs.select1.value * 1 === 1){
             this.setState({selectlist:filterColumns1});
             filterColumns = filterColumns1
-        }else{
+        }else if(this.refs.select1.value * 1 === 2){
             this.setState({selectlist:filterColumns2});
             filterColumns = filterColumns2
         }
@@ -130,9 +130,10 @@ export default class extends Component {
                         </div>
                         <div className='g-header'>
                             <font size="3" color="blue" className ='dataInput'>Field</font>
-                            <select className ='selectInput' ref = 'select1' onChange={this.handleClick}>
-                                <option value = "0">SE Method</option>
-                                <option value = "1">SE Methodology</option>
+                            <select className ='selectInput' ref = 'select1' onChange={this.handleClick}>    
+                                <option value = "0">Select a flied</option>
+                                <option value = "1">SE Method</option>
+                                <option value = "2">SE Methodology</option>
                             </select>
                             <font size="3" color="blue" className ='dataInput'>Operator</font>
                             <select className ='selectInput'  ref = 'select2'>
@@ -164,7 +165,7 @@ var filterColumns = [
     { name: "TDD"},
     { name: "BDD"},
     { name: "Pair Programming"},
-    { name: "planning poker,"},
+    { name: "planning poker"},
     { name: "daily standup meetings"},
     { name: "story boards"},
 ];
@@ -174,7 +175,7 @@ const filterColumns1 = [
     { name: "TDD"},
     { name: "BDD"},
     { name: "Pair Programming"},
-    { name: "Planning poker,"},
+    { name: "Planning poker"},
     { name: "Daily standup meetings"},
     { name: "story boards"},
 ];

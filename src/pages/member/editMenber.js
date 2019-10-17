@@ -16,7 +16,7 @@ export default class  extends Component {
             research_result:props.meberMsg.research_result || ''
         };
         this.onChangeTree = this.onChangeTree.bind(this);
-        this.getOptDept = this.getOptDept.bind(this);
+        // this.getOptDept = this.getOptDept.bind(this);
         this.submit = this.submit.bind(this);
 	    this.curDept = [];
         if(props.meberMsg.department_id && props.meberMsg.department_name){
@@ -36,13 +36,13 @@ export default class  extends Component {
             optDept:flag
         });
     }
-    getOptDept(data = []){
-        this.curDept = data;
-        this.setState({
-            department_id:(data[0] || {}).department_id || '',
-            department_name:(data[0] || {}).department_name || ''
-        });
-    }
+    // getOptDept(data = []){
+    //     this.curDept = data;
+    //     this.setState({
+    //         department_id:(data[0] || {}).department_id || '',
+    //         department_name:(data[0] || {}).department_name || ''
+    //     });
+    // }
     verifyFrom(param){
         if(!param.article_name){
             message.warning('input article_name');
@@ -60,26 +60,34 @@ export default class  extends Component {
             author_name:this.state.author_name,
             year:this.state.year ,
             field_id:this.state.field_id ,
-            se_method:this.state.se_method ,
+            se_method:this.state.se_method,
+            review:this.state.review,
+            se_methodology:this.state.se_methodology,
             research_question:this.state.research_question ,
             research_result:this.state.research_result
         };
         if(!this.verifyFrom(param)) return false;
-        const type = this.state.member_id?'edit':'add';
+        // const type = this.state.member_id?'edit':'add';
+        // const data = {
+        //     add:{
+        //         url:'/staff/add',
+        //         param:param,
+        //         success:'add success',
+        //         error:',failed'
+        //     },
+        //     edit:{
+        //         url:'/staff/edit',
+        //         param:{...param,member_id:this.state.member_id},
+        //         success:'success',
+        //         error:',failed'
+        //     }
+        // }[type];
         const data = {
-            add:{
-                url:'/staff/add',
-                param:param,
-                success:'add success',
-                error:',failed'
-            },
-            edit:{
-                url:'/staff/edit',
-                param:{...param,member_id:this.state.member_id},
-                success:'success',
-                error:',failed'
-            }
-        }[type];
+            url:'/staff/add',
+            param:param,
+            success:'add success',
+            error:',failed'
+        };
         this.$http.post(data.url,data.param).then(res => {
             const resData = res.data || {};
             if(resData.code + '' === '0'){
@@ -123,9 +131,21 @@ export default class  extends Component {
                             </td>
                         </tr>
                         <tr>
+                            <td className='in-h'>review<span className='in-star'>*</span></td>
+                            <td>
+                                <input className='input' value={this.state.review} onChange={(event) => this.changeVal('review',event.target.value)}/>
+                            </td>
+                        </tr>
+                        <tr>
                             <td className='in-h'>se_method<span className='in-star'>*</span></td>
                             <td>
                                 <input className='input' value={this.state.se_method} onChange={(event) => this.changeVal('se_method',event.target.value)}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className='in-h'>se_methodology<span className='in-star'>*</span></td>
+                            <td>
+                                <input className='input' value={this.state.se_methodology} onChange={(event) => this.changeVal('se_methodology',event.target.value)}/>
                             </td>
                         </tr>
                         <tr>

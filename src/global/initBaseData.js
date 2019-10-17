@@ -15,19 +15,49 @@ export function updateStaff () {
 
 export function search (dataset) {
     const dispatch = store.dispatch;
-     this.$http.post('/staff/list').then(res => {
-         const resData = res.data || {};
-         if(resData.code + '' === '0'){
+    const param = {
+        yearto : dataset.to * 1,
+        yearfrom : dataset.from * 1
+    };
+    const data = {
+        url:'/staff/list',
+        param:param,
+        success:'add success',
+        error:',failed'
+    };
+    this.$http.post(data.url,data.param).then(res => {
+        const resData = res.data || {};
+        if(resData.code + '' === '0'){
             dispatch({
                 type:'getStaff',
-                data:trim_nulls(resData.data.map(year =>((year.year * 1 >= dataset.from * 1 && year.year * 1 <= dataset.to * 1)
+                data:trim_nulls(resData.data.map(info =>(
+                    condition(info,dataset)
                     ?  
-                    year : {})))|| []
+                    info : {})))|| []
             });
-         }
-     });
- 
- }
+        }
+    });
+}
+
+function condition(info,dataset){
+    if(dataset.select1 * 1 === 0){
+        return true
+    }else if(dataset.select1 * 1 === 1){
+        if(dataset.select2* 1 === 0){
+            return (info.se_method.indexOf(dataset.select3) !== -1)
+        }else if(dataset.select2* 1 === 1){
+            return (info.se_method.indexOf(dataset.select3) === -1)
+        }else if(dataset.select2* 1 === 2){
+            return (info.se_method.indexOf(dataset.select3) === 0)
+        }else if(dataset.select2* 1 === 3){
+            return (info.se_method.indexOf(dataset.select3) !== -1)
+        }else{
+            return (info.se_method.indexOf(dataset.select3) !== -1)
+        }
+    }else{
+        return (info.se_methodology.indexOf(dataset.select3) !== -1)
+    }
+}
 
 function trim_nulls(data) {
     var y;
