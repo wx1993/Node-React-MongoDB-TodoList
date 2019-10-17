@@ -1,0 +1,23 @@
+.m-member-edit{
+    padding-top: 50px;
+    padding-left: 50px;
+}
+.m-list .action{
+    cursor: pointer;
+    font-size: 14px;
+    color: #24c875;
+}
+.dataInput{
+    margin-left:2%;
+	width: 10%;
+	height: 45%;
+}
+.selectInput{
+    margin-left:2%;
+	width: 15%;
+	height: 45%;
+}
+
+.searchButton{
+    margin-left:2%;
+}
