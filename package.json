@@ -42,6 +42,10 @@
     "webpack-dev-server": "2.7.1",
     "webpack-manifest-plugin": "1.2.1",
     "webpack-hot-middleware": "^2.21.0",
+    "antd": "^2.13.6",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
