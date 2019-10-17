@@ -163,8 +163,8 @@ export default class  extends Component {
                         <tr>
                             <td className='in-h'></td>
                             <td>
-                                <button type='button' className='submit' style={{marginRight:'10px'}} onClick={this.submit}>确定</button>
-                                <button type='button' className='cancel' onClick={() => this.props.changeState('list')}>取消</button>
+                                <button type='button' className='submit' style={{marginRight:'10px'}} onClick={this.submit}>Confirm</button>
+                                <button type='button' className='cancel' onClick={() => this.props.changeState('list')}>Cancel</button>
                             </td>
                         </tr>
                     </tbody>
