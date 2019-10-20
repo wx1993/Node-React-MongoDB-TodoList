@@ -86,13 +86,13 @@ import {connect} from 'react-redux';
         }).then(res => {
             const resData = res.data || {};
             if(resData.code + '' === '0'){
-                message.success('修改员工部门成功');
+                message.success('success');
                 this.setState({
                     changeDept:false
                 });
                 updateStaff.bind(this)();
             } else {
-                message.error('修改员工部门失败');
+                message.error('error');
             }
         });
     }
@@ -102,7 +102,7 @@ import {connect} from 'react-redux';
     // 修改部门负责人
     onOk(leader){
         if(this.props.dept_id * 1 && leader.length <= 0) {
-            message.warning('请选择部门负责人');
+            message.warning('');
             return false;
         }
         this.$http.post('/dept/edit',{
@@ -112,37 +112,37 @@ import {connect} from 'react-redux';
         }).then(res => {
             const resData = res.data || {};
             if(resData.code + '' === '0'){
-                message.success('修改部门负责人成功');
+                message.success('success');
                 updateDept.bind(this)();
             } else {
-                message.error('修改部门负责人失败');
+                message.error('error');
             }
         })
     }
     render(){
         return <div className='m-dept-member'>
             {this.props.dept_id * 1?<div className='g-header'>
-                <span>部门负责人:</span>
+                <span>Review:</span>
                 {this.props.dept_leader.member_name}
                 {this.offset}
-                <Button className="primary opt-leader" onClick={() => {this.onChangeTree(true)}}>{!this.props.dept_leader?'选择部门负责人':'修改部门负责人'}</Button>
+                <Button className="primary opt-leader" onClick={() => {this.onChangeTree(true)}}>{!this.props.dept_leader?'Review':'Review'}</Button>
                 {this.state.visible?<SelectLeader type='staff' selectedData={this.props.dept_leader.member_id?[this.props.dept_leader]:[]} maxNum={1} visible={this.state.visible} onChangeTree={this.onChangeTree} onOk={this.onOk}/>:null}
             </div>:null}
             <Table cols={this.columns} offset={this.props.offset} data={this.props.tb_data} title={this.props.dept_name}/>
             {this.state.changeDept?
-                <Modal onOk={this.action} onCancel={() => {this.setState({changeDept:false})}} width={470} visible={true} title={'修改部门'} closable={true}>
+                <Modal onOk={this.action} onCancel={() => {this.setState({changeDept:false})}} width={470} visible={true} title={'Review'} closable={true}>
                     <table className='g-from'>
                         <tbody>
                             <tr>
-                                <td className='in-h' width="100">姓名</td>
-                                <td>{this.member.member_name}</td>
+                                <td className='in-h' width="100">Title</td>
+                                <td>{this.member.title}</td>
                             </tr>
                             <tr>
-                                <td className='in-h'>部门</td>
+                                <td className='in-h'>Year</td>
                                 <td>{this.member.department_name}</td>
                             </tr>
                             <tr>
-                                <td className='in-h'>新部门</td>
+                                <td className='in-h'>Status</td>
                                 <td>
                                     <FilterDept onChange={this.onChange}/>
                                 </td>

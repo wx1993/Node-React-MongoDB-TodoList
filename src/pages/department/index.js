@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import Layout from './../../components/layout.js';
-import DeptTree from './deptTree.js'
 import RightList from './list.js';
 
 
