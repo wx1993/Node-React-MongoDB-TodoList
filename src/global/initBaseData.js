@@ -1,7 +1,7 @@
 import store from './../store/index.js';
 export function updateStaff () {
    const dispatch = store.dispatch;
-    this.$http.post('/staff/list').then(res => {
+    this.$http.post('/search/list').then(res => {
         const resData = res.data || {};
         if(resData.code + '' === '0'){
             dispatch({
@@ -20,9 +20,9 @@ export function search (dataset) {
         yearfrom : dataset.from * 1
     };
     const data = {
-        url:'/staff/list',
+        url:'/search/list',
         param:param,
-        success:'add success',
+        success:'success',
         error:',failed'
     };
     this.$http.post(data.url,data.param).then(res => {

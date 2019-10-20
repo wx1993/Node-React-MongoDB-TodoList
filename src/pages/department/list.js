@@ -80,7 +80,7 @@ import {connect} from 'react-redux';
         })
     }
     action(){
-        this.$http.post('/staff/edit',{
+        this.$http.post('/search/edit',{
             ...this.member,
             ...this.optDept
         }).then(res => {

@@ -8,11 +8,10 @@ import {Provider} from 'react-redux';
 import store from './store/index.js';
 import {search,updateDept,updateStaff} from './global/initBaseData.js';
 if (module.hot) {
-  // 模块自己就接收更新
   module.hot.accept();
 }
 React.Component.prototype.$http = axios;
-updateStaff.bind(React.Component.prototype)();
+// updateStaff.bind(React.Component.prototype)();
 search.bind(React.Component.prototype)({});
 updateDept.bind(React.Component.prototype)();
 ReactDOM.render(<Provider store={store}>

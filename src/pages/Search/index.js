@@ -78,14 +78,12 @@ export default class extends Component {
         if(!this.state.from)
         {
             this.setState({
-                from:0,
-                to:0
+                from:0
             });
         }
         if(!this.state.to)
         {
             this.setState({
-                from:0,
                 to:0
             });
         }
@@ -122,7 +120,7 @@ export default class extends Component {
     }
 
     del(){
-        this.$http.post('/staff/del',{
+        this.$http.post('/search/del',{
             member_id:this.rowData.member_id
         }).then(res => {
             const resData = res.data || {};

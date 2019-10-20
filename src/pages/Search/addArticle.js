@@ -62,23 +62,8 @@ export default class  extends Component {
             research_result:this.state.research_result
         };
         if(!this.verifyFrom(param)) return false;
-        // const type = this.state.member_id?'edit':'add';
-        // const data = {
-        //     add:{
-        //         url:'/staff/add',
-        //         param:param,
-        //         success:'add success',
-        //         error:',failed'
-        //     },
-        //     edit:{
-        //         url:'/staff/edit',
-        //         param:{...param,member_id:this.state.member_id},
-        //         success:'success',
-        //         error:',failed'
-        //     }
-        // }[type];
         const data = {
-            url:'/staff/add',
+            url:'/search/add',
             param:param,
             success:'add success',
             error:',failed'
