@@ -1,10 +1,10 @@
 import React ,{Component} from 'react';
 import {Button,message,Modal} from 'antd'
-import EditMember from './editMenber.js'
+import EditMember from './addArticle.js'
 import Layout from './../../components/layout.js';
 import {updateStaff, search} from './../../global/initBaseData.js';
 import './index.css';
-import ListMember from './listMember.js';
+import ListMember from './listArticle.js';
 export default class extends Component {
     constructor(props){
         super(props);
@@ -75,14 +75,14 @@ export default class extends Component {
     }
 
     searchresults(){
-        if(this.state.from)
+        if(!this.state.from)
         {
             this.setState({
                 from:0,
                 to:0
             });
         }
-        if(this.state.to)
+        if(!this.state.to)
         {
             this.setState({
                 from:0,

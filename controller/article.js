@@ -1,4 +1,4 @@
-var articleModel = require('./../model/article.js');
+var articleModel = require('../model/article.js');
 // 获取职员列表
 exports.articleList = function (req, res) {
   const yearto = req.body.yearto;

@@ -3,7 +3,7 @@ let expect = require('chai').expect;
 require('should');
 var mongoose = require('mongoose');
 var helper = require('./../helper');
-var articleModel = require('./../model/staff.js');
+var articleModel = require('./../model/article.js');
 
 before(function(done){
 

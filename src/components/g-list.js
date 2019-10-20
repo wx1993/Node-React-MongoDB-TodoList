@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import { Checkbox ,Button,Icon} from 'antd';
-import '../pages/holiday/css/list.css'
 import fixHeight from './../global/fixHeight.js'
 export default class  extends Component {
     constructor(props){

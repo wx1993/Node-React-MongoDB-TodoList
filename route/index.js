@@ -1,5 +1,5 @@
 var dept = require('./../controller/dept.js');
-var staff = require('./../controller/staff.js');
+var staff = require('./../controller/article.js');
 module.exports = function (app) {
   app.get('/check_connect',function (req,res) {
       res.json({code:0,data:{connect_database:process.env.connect_database}});
