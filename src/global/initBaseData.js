@@ -17,7 +17,8 @@ export function search (dataset) {
     const dispatch = store.dispatch;
     const param = {
         yearto : dataset.to * 1,
-        yearfrom : dataset.from * 1
+        yearfrom : dataset.from * 1,
+        sort : dataset.sort
     };
     const data = {
         url:'/search/list',

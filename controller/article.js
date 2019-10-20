@@ -3,13 +3,46 @@ var articleModel = require('../model/article.js');
 exports.articleList = function (req, res) {
   const yearto = req.body.yearto;
   const yearfrom = req.body.yearfrom;
+  const sortfiled = req.body.sort
     var prama = {
       year:{$gte:2018,$lte:2019}
     };
+    let sort = {};
+    if(sortfiled === 'article_name')
+    {
+      sort = {
+        article_name :'1'
+      }
+    }else if(sortfiled === 'Author'){
+      sort = {
+        author_name :'1'
+      }
+
+    }else if(sortfiled === 'year'){
+      sort = {
+        year :'1'
+      }
+
+    }else if(sortfiled === 'se_method'){
+      sort = {
+        se_method :'1'
+      }
+
+    }else if(sortfiled === 'se_methodology'){
+      sort = {
+        se_methodology :'1'
+      }
+    }else
+    {
+      sort = {
+        article_name :'1'
+      }
+    }
     // var query = articleModel.find({});
     if(yearto *1 === 0 && yearfrom* 1 === 0){
       articleModel
       .find({})
+      .sort(sort)
       // .populate('Department','department_name')
       .exec(function (err, staffs) {
         if(err){
@@ -21,6 +54,7 @@ exports.articleList = function (req, res) {
     }else{
       articleModel
       .find(prama)
+      .sort(sort)
       // .where('year').gte(yearfrom).lte(yearto)
       // .populate('Department','department_name')
       .exec(function (err, staffs) {

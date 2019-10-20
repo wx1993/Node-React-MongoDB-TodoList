@@ -92,7 +92,8 @@ export default class extends Component {
             to: this.state.to,
             select1: this.refs.select1.value,
             select2: this.refs.select2.value,
-            select3: this.refs.select3.value
+            select3: this.refs.select3.value,
+            sort : this.refs.selectSort.value
         };
         // alert(dataset.select3);
         search.bind(this)(dataset);
@@ -109,6 +110,12 @@ export default class extends Component {
         {
             this.setState({
                 from:2014,
+                to:2019
+            });
+        }else if(this.refs.selectYears.value * 1 === 3)
+        {
+            this.setState({
+                from:0,
                 to:2019
             });
         }else{
@@ -175,6 +182,7 @@ export default class extends Component {
                                 <option value = "0">Last year</option>
                                 <option value = "1">Last five years</option>
                                 <option value = "2">Last ten years</option>
+                                <option value = "3">All years</option>
                             </select>
                             <Button type="primary" onClick={() => this.searchresults() } className ='searchButton' >Search</Button>
                             <Button type="primary" onClick={() => this.handle('add') } className ='searchButton' >ADD</Button>
@@ -197,6 +205,16 @@ export default class extends Component {
                             <font size="3" color="blue" className ='dataInput' >Value</font>
                             <select className={'selectInput'} ref = 'select3'>
                                 {filterColumns.map(index => (<option value = {index.name} >{index.name}</option>))}
+                            </select>
+                        </div>
+                        <div className='g-header'>
+                            <font size="3" color="Red" className ='dataInput'>Sort by</font>
+                            <select className ='selectInput' ref = 'selectSort' onChange={this.handleClick}>    
+                                <option value = "Title">Title</option>
+                                <option value = "Author">Author</option>
+                                <option value = "Year">Year</option>
+                                <option value = "SE Method">SE Method</option>
+                                <option value = "SE Methodology">SE Methodology</option>
                             </select>
                         </div>
                         <ListMember columns={this.columns}/>
