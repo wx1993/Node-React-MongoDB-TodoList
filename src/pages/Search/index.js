@@ -132,13 +132,13 @@ export default class extends Component {
         }).then(res => {
             const resData = res.data || {};
             if(resData.code + '' === '0'){
-                message.success('员工删除成功');
+                message.success('del success');
                 this.setState({
                     delModel:false
                 });
                 this.updateList();
             } else {
-                message.error('员工删除失败');
+                message.error('del error');
             }
         })
     }
@@ -198,9 +198,9 @@ export default class extends Component {
                             <select className ='selectInput'  ref = 'select2'>
                                 <option value = "0">Contains</option>
                                 <option value = "1">Not Contain</option>
-                                <option value = "2">begins with</option>
-                                <option value = "3">ends with</option>
-                                <option value = "4">is equal</option>
+                                <option value = "2">Begins with</option>
+                                <option value = "3">Ends with</option>
+                                <option value = "4">Is equal</option>
                             </select>
                             <font size="3" color="blue" className ='dataInput' >Value</font>
                             <select className={'selectInput'} ref = 'select3'>
@@ -220,8 +220,8 @@ export default class extends Component {
                         <ListMember columns={this.columns}/>
                     </div>:null}
                     {this.state.status ==='edit'?<EditMember meberMsg={this.rowData} changeState={this.changeState}/>:null}
-                    {this.state.delModel?<Modal wrapClassName='g-popup-sure' closable={false} title='删除员工' onOk={this.del} onCancel={() => this.setState({delModel:false})} visible={true}>
-                        <p className="info">确定删除该员工，删除之后数据将无法恢复？</p>
+                    {this.state.delModel?<Modal wrapClassName='g-popup-sure' closable={false} title='delete article' onOk={this.del} onCancel={() => this.setState({delModel:false})} visible={true}>
+                        <p className="info">delete article？</p>
                     </Modal>:null}
                 </div>
             </Layout>
@@ -234,9 +234,9 @@ var filterColumns = [
     { name: "TDD"},
     { name: "BDD"},
     { name: "Pair Programming"},
-    { name: "planning poker"},
-    { name: "daily standup meetings"},
-    { name: "story boards"},
+    { name: "Planning poker"},
+    { name: "Daily standup meetings"},
+    { name: "Story boards"},
 ];
 
 
@@ -246,7 +246,7 @@ const filterColumns1 = [
     { name: "Pair Programming"},
     { name: "Planning poker"},
     { name: "Daily standup meetings"},
-    { name: "story boards"},
+    { name: "Story boards"},
 ];
 const filterColumns2 = [
     { name: "Scrum"},

@@ -56,7 +56,17 @@ function condition(info,dataset){
             return (info.se_method.indexOf(dataset.select3) !== -1)
         }
     }else{
-        return (info.se_methodology.indexOf(dataset.select3) !== -1)
+        if(dataset.select2* 1 === 0){
+            return (info.se_methodology.indexOf(dataset.select3) !== -1)
+        }else if(dataset.select2* 1 === 1){
+            return (info.se_methodology.indexOf(dataset.select3) === -1)
+        }else if(dataset.select2* 1 === 2){
+            return (info.se_methodology.indexOf(dataset.select3) === 0)
+        }else if(dataset.select2* 1 === 3){
+            return (info.se_methodology.indexOf(dataset.select3) !== -1)
+        }else{
+            return (info.se_methodology.indexOf(dataset.select3) !== -1)
+        }
     }
 }
 
