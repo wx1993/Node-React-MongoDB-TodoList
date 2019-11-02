@@ -12,7 +12,7 @@
     "ejs": "~2.5.5",
     "express": "~4.14.1",
     "jquery": "^3.1.1",
-    "mongoose": "^4.8.6",
+    "mongoose": "^5.7.7",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.2"
   },
