@@ -9511,7 +9511,8 @@ var Todo = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (Todo.__proto__ || Object.getPrototypeOf(Todo)).call(this, props));
 
 		_this.state = {
-			todoList: [],
+      todoList: [],
+      todoListALL:[],
 			showTooltip: false // 控制 tooltip 的显示隐藏
 		};
 		return _this;
@@ -9526,7 +9527,7 @@ var Todo = function (_React$Component) {
 
 		// 获取 todolist
 
-	}, {
+	},{
 		key: '_getTodoList',
 		value: function _getTodoList() {
 			var that = this;
@@ -9535,10 +9536,12 @@ var Todo = function (_React$Component) {
 				type: 'get',
 				dataType: 'json',
 				success: function success(data) {
+
 					console.log(data);
-					// const todoList = that.todoSort(data)
+				 // const todoList = that.todoSort(data)
 					that.setState({
-						todoList: data
+            todoList: data,
+            todoListALL: data
 					});
 				},
 				error: function error(err) {
@@ -9640,7 +9643,7 @@ var Todo = function (_React$Component) {
 
 			// 生成参数
 			var newItem = {
-				content: this.refs.content.value,
+        content: this.refs.content.value,
 				date: month + "/" + date + " " + hours + ":" + minutes + ":" + seconds
 			};
 
@@ -9655,27 +9658,286 @@ var Todo = function (_React$Component) {
 			});
 		}
 	}, {
+    key: 'searchData',
+    value: function _searchData(){
+
+   //    event.preventDefault();
+			// // 表单输入为空验证
+			// if (this.refs.contentFrom.value == "") {
+			// 	this.refs.contentFrom.focus();
+			// 	return;
+			// }else if (this.refs.contentEnd.value == "") {
+			// 	this.refs.contentEnd.focus();
+			// 	return;
+   //    }
+
+      	// 生成参数
+			var newItem = {
+        beginYear: this.refs.contentFrom.value,
+				endYear:this.refs.contentEnd.value
+			};
+          
+      console.log(newItem);
+      this._onSearchData(newItem);
+
+
+     
+    
+    }
+  }, 
+
+  {
+		key: '_onSearchData',
+		value: function _onSearchData(newItem) {
+			var that = this;
+			_jquery2.default.ajax({
+				url: '/SearchData',
+				type: 'get',
+				dataType: 'json',
+				data: newItem,
+				success: function success(data) {
+					console.log(data);
+					var todoList = that.todoSort(data);
+					that.setState({
+						todoList: todoList
+					});
+				},
+				error: function error(err) {
+					console.log(err);
+				}
+			});
+		}
+
+		// 删除 todo
+
+  },
+  
+  {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'div',
-				{ className: 'container' },
-				_react2.default.createElement(
-					'h2',
-					{ className: 'header' },
-					'Todo List'
-				),
-				_react2.default.createElement(
-					'form',
-					{ className: 'todoForm', ref: 'todoForm', onSubmit: this.handleSubmit.bind(this) },
-					_react2.default.createElement('input', { ref: 'content', type: 'text', placeholder: 'Type content here...', className: 'todoContent' }),
-					this.state.showTooltip && _react2.default.createElement(
-						'span',
-						{ className: 'tooltip' },
-						'Content is required !'
-					)
-				),
-				_react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })
+        'span',
+        {className:'container'},
+        _react2.default.createElement(
+          'div',
+          { className: 'searchcondition' },
+          _react2.default.createElement(
+            'div',
+            {className: 'conditiontitle'},
+            _react2.default.createElement(
+              'h2',
+              { className: 'header' },
+              'Description'
+            ),
+          ),
+
+          _react2.default.createElement(
+            'form',
+            { className: 'todoForm', ref: 'todoForm', onSubmit: this.handleSubmit.bind(this) },
+            _react2.default.createElement(
+              'div',
+              { className:'layer' },
+              _react2.default.createElement(
+              'div', 
+              {className: 'divyear' },
+              'From'
+              ),
+              _react2.default.createElement(
+              'input', 
+              { ref: 'contentFrom', type: 'text', placeholder: '2018', className: 'yeartext' }),
+
+              _react2.default.createElement(
+                'div', 
+                {className: 'divyear2' },
+                'TO'
+                ),
+              _react2.default.createElement(
+                'input', 
+                { ref: 'contentEnd', type: 'text', placeholder: '2019', className: 'yeartext2' }
+              )
+            ),
+            
+            _react2.default.createElement(
+              'div',
+              { className : 'layer'},
+              _react2.default.createElement(
+                'select',
+                { className : 'ifsection'},
+                
+                _react2.default.createElement(
+                  'option',
+                  { value : 'Method'},
+                  'Method'
+                ),
+                
+                _react2.default.createElement(
+                  'option',
+                  { value : 'Methodology'},
+                  'Methodology'
+                ),
+                
+                _react2.default.createElement(
+                  'option',
+                  { value : 'Benifit'},
+                  'Benifit'
+                ),
+              ),
+
+              _react2.default.createElement(
+                'select',
+                { className : 'ifsection'},
+                
+                _react2.default.createElement(
+                  'option',
+                  { value : 'Contains'},
+                  'Contains'
+                ),
+                
+                _react2.default.createElement(
+                  'option',
+                  { value : 'Not contain'},
+                  'Not contain'
+                ),
+                
+                _react2.default.createElement(
+                  'option',
+                  { value : 'Begins with'},
+                  'Begins with'
+                ),
+                
+                _react2.default.createElement(
+                  'option',
+                  { value : 'End with'},
+                  'end with'
+                ),
+                
+                _react2.default.createElement(
+                  'option',
+                  { value : 'Equal'},
+                  'Equal'
+                ),
+              ),
+              
+              _react2.default.createElement(
+                'input', 
+                { ref: 'content', type: 'text', placeholder: 'value', className: 'iftext' }
+              ),
+
+              _react2.default.createElement(
+                  'button', 
+                  { type: 'button', className: 'ifbutton'},
+                  '+'
+              ),
+              _react2.default.createElement(
+                  'button', 
+                  { type: 'button', className: 'ifbutton'},
+                  '-'
+              ),
+            ),
+            
+            _react2.default.createElement(
+              'div',
+              { className : 'layer'},
+              
+              _react2.default.createElement(
+                'button', 
+                { type: 'button', className: 'searchbutton',onClick: this.searchData.bind(this)},
+                'Search'
+              ),
+              _react2.default.createElement(
+                'button', 
+                { type: 'button', className: 'savebutton', onClick: this.handleSubmit.bind(this)},
+                'Save'
+              ),
+            ),
+          ),
+          _react2.default.createElement(
+            'div',
+            {className: 'conditiontitle'},
+            _react2.default.createElement(
+              'h2',
+              { className: 'header' },
+              'Histories'
+            ),
+            
+            //_react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })  
+          ),          
+        ),
+
+        _react2.default.createElement(
+          'div',
+          {className: 'searchresult'},
+          // _react2.default.createElement(
+          //   'div',
+          //   { className : 'layer'},
+          //   _react2.default.createElement(
+          //     'select',
+          //     { className : 'searchsection'},
+              
+          //     _react2.default.createElement(
+          //       'option',
+          //       { value : 'Contains'},
+          //       'Contains'
+          //     ),
+              
+          //     _react2.default.createElement(
+          //       'option',
+          //       { value : 'Not contain'},
+          //       'Not contain'
+          //     ),
+              
+          //     _react2.default.createElement(
+          //       'option',
+          //       { value : 'Begins with'},
+          //       'Begins with'
+          //     ),
+              
+          //     _react2.default.createElement(
+          //       'option',
+          //       { value : 'End with'},
+          //       'end with'
+          //     ),
+              
+          //     _react2.default.createElement(
+          //       'option',
+          //       { value : 'Equal'},
+          //       'Equal'
+          //     ),
+          //   ),
+          // ),
+          
+
+          // _react2.default.createElement(
+          //   'form',
+          //   { className: 'todoForm', ref: 'todoForm', onSubmit: this.handleSubmit.bind(this) },
+          //   _react2.default.createElement('input', { ref: 'content', type: 'text', placeholder: 'Type content here...', className: 'todoContent' }),
+          //   this.state.showTooltip && _react2.default.createElement(
+          //     'span',
+          //     { className: 'tooltip' },
+          //     'Content is required !'
+          //   )
+          // ),
+          
+          _react2.default.createElement(
+            'div',
+            {className: 'conditiontitle'},
+            _react2.default.createElement(
+              'h2',
+              { className: 'header' },
+              'Results'
+            ),
+            _react2.default.createElement(_todoList2.default, { todoList: this.state.todoList, onDeleteItem: this._onDeleteItem.bind(this) })  
+
+          ),
+
+          // _react2.default.createElement(_todoList2.default, { todoList: this.state.todoList})
+          // _react2.default.createElement(
+          //   'textarea',
+          //   {value : this.state.todoList}
+            
+          // )
+
+        )
 			);
 		}
 	}]);
@@ -31832,6 +32094,16 @@ var TodoItem = function (_React$Component) {
 						{ className: "itemCont" },
 						this.props.content
 					),
+          _react2.default.createElement(
+            "span",
+            { className: "itemMethods" },
+            this.props.methods
+          ),
+           _react2.default.createElement(
+            "span",
+            { className: "itemAuthor" },
+            this.props.author
+          ),
 					_react2.default.createElement(
 						"span",
 						{ className: "itemTime" },
@@ -31900,8 +32172,9 @@ var TodoList = function (_React$Component) {
                   // 循环生成每一条 todoItem，并将 delete 方法传递给子组件 
                   var todoItems = todoList.map(function (item, index) {
                         return _react2.default.createElement(_todoItem2.default, {
-                              key: index,
-                              content: item.content,
+                              content: item.publishTime,
+                              methods: item.methods,
+                              author: item.author,
                               date: item.date,
                               onDeleteItem: _this2.props.onDeleteItem
                         });
